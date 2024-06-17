@@ -1,13 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const SideBar = () => {
     const [open, setOpen] = useState(false);
+
+    useEffect(() => {
+        if (open) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+    }, [open]);
+
+    const handleClick = () => {
+        setOpen(!open);
+    }
   return (
-    <div onClick={() => setOpen(!open)} className={`relative `}>
-      <div className={`border-8 h-screen md:h-auto border-white dark:border-black bg-[#6FCCDD] dark:bg-[#131416] w-full rounded-xl md:absolute sticky top-0 duration-300 ${open ? "md:w-56" : "w-24"}`}>
+    <div onClick={handleClick} className={`relative ${open ? "md:w-56" : "md:w-24"}`}>
+      <div className={`border-8 h-screen md:h-auto border-white dark:border-black bg-[#6FCCDD] dark:bg-[#131416] w-full rounded-xl md:absolute sticky top-0  `}>
         <ul className="flex flex-col gap-10 p-3 text-white">
-          <li onClick={() => setOpen(!open)} className="cursor-pointer flex items-center gap-2">
+          <li className="cursor-pointer flex items-center gap-2">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
