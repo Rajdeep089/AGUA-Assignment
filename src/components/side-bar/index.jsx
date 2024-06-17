@@ -5,7 +5,7 @@ const SideBar = () => {
     const [open, setOpen] = useState(false);
   return (
     <div onClick={() => setOpen(!open)} className={`relative `}>
-      <div className={`border-8 h-screen md:h-auto border-white dark:border-black bg-[#6FCCDD] dark:bg-[#131416] w-full rounded-xl md:absolute sticky top-0 duration-300 ${open ? "md:w-56 w-24" : "w-24"}`}>
+      <div className={`border-8 h-screen md:h-auto border-white dark:border-black bg-[#6FCCDD] dark:bg-[#131416] w-full rounded-xl md:absolute sticky top-0 duration-300 ${open ? "md:w-56" : "w-24"}`}>
         <ul className="flex flex-col gap-10 p-3 text-white">
           <li onClick={() => setOpen(!open)} className="cursor-pointer flex items-center gap-2">
             <svg
